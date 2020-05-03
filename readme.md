@@ -1,10 +1,14 @@
 # keepMoving
 
-Is a python script that draw some figures on a previuosly open and maximize paint window. This prevents the monitor for going to sleep.
+Is a python script that draw some figures <del>on a previuosly open and maximized paint app window</del>. This prevents the monitor for going to sleep.
 
 ## Prerequisites
 
 Python 3
+
+- MODULES
+  - pyautogui
+  - time
 
 ## Usage
 
