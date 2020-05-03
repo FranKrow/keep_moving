@@ -1,4 +1,6 @@
 import pyautogui
+import time
+
 
 # Class that represents an array objects for the color selection
 
@@ -42,6 +44,13 @@ def drawImage(lineLength):
         pyautogui.drag(0, -lineLength, duration)  # move up
 
 
+def initPaint():
+    pyautogui.hotkey("win")
+    time.sleep(1)  # giving time to windows bar to show
+    pyautogui.typewrite("paint", interval=0.25)
+    pyautogui.press('enter')
+
+
 screenWidth, screenHeight = pyautogui.size()
 
 # colors palet from paint
@@ -62,6 +71,8 @@ clearY = 68  # clear selection y position
 pencilX = 244  # Pencil icon x position
 pencilY = 68  # Pencil icon y position
 
+initPaint()
+time.sleep(2)  # Some time so the paint app can load
 setUp()  # Setup the app
 
 while accumulativeWidth < screenWidth:
