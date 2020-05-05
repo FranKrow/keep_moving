@@ -1,6 +1,8 @@
 import pyautogui
 import time
 
+selectIconPath = "icons/0.png"
+pencilIconPath = "icons/1.png"
 
 # Class that represents an array objects for the color selection
 
@@ -16,13 +18,15 @@ class color:
 def setUp():
     global count, accumulativeWidth, startX
     # Click on Select icon
-    pyautogui.click(clearX, clearY)
+    left, top, width, height = pyautogui.locateOnScreen(selectIconPath)
+    pyautogui.click(left+(width/2), top+(height/2))
     # select all the canvas
     pyautogui.hotkey('ctrl', 'a')
     # Delete All
     pyautogui.hotkey('delete')
     # Click on the pencil
-    pyautogui.click(pencilX, pencilY)
+    left, top, width, height = pyautogui.locateOnScreen(pencilIconPath)
+    pyautogui.click(left+(width/2), top+(height/2))
     count = 0
     accumulativeWidth = 200
     startX = 11
@@ -64,12 +68,8 @@ colors.append(color(860, 60))
 
 count = 0  # How many figures were drawn
 accumulativeWidth = 200  # The total of the width used for the figures
-startX = 11  # Initial x point within paint
+startX = 15  # Initial x point within paint
 startY = 150  # Initial y point within paint
-clearX = 125  # Clear selection x position
-clearY = 68  # clear selection y position
-pencilX = 244  # Pencil icon x position
-pencilY = 68  # Pencil icon y position
 
 initPaint()
 time.sleep(2)  # Some time so the paint app can load
